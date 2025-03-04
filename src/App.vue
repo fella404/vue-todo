@@ -37,6 +37,7 @@ export default {
 </script>
 
 <template>
+  <h1 class="text-success text-uppercase fw-bold text-center">vue todo</h1>
   <div class="container">
     <section class="input-group my-3">
       <input
