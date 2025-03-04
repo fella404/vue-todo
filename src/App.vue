@@ -7,6 +7,19 @@ export default {
       todos: [],
     };
   },
+  mounted() {
+    if (localStorage.getItem("todos")) {
+      this.todos = JSON.parse(localStorage.getItem("todos"));
+    }
+  },
+  watch: {
+    todos: {
+      handler(val) {
+        localStorage.setItem("todos", JSON.stringify(val));
+      },
+      deep: true,
+    },
+  },
   methods: {
     addTodo() {
       if (this.todoInput !== "") {
