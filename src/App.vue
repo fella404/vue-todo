@@ -58,8 +58,10 @@ export default {
       />
       <button @click="addTodo" class="btn btn-outline-secondary">Add</button>
     </section>
-    <ul class="list-group" v-for="todo in todos" :key="todo.id">
+    <ul class="list-group">
       <li
+        v-for="todo in todos"
+        :key="todo.id"
         class="d-flex justify-content-between align-items-center list-group-item"
         :class="{ bg: todo.completed }"
       >
