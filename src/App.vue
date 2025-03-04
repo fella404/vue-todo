@@ -29,9 +29,6 @@ export default {
       }
       console.log(this.todos);
     },
-    enterTodo() {
-      this.addTodo();
-    },
   },
 };
 </script>
@@ -44,7 +41,7 @@ export default {
         type="text"
         class="form-control"
         v-model="todoInput"
-        @keydown.enter="enterTodo"
+        @keydown.enter="addTodo"
       />
       <button @click="addTodo" class="btn btn-outline-secondary">Add</button>
     </section>
