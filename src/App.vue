@@ -63,7 +63,12 @@ export default {
         class="d-flex justify-content-between align-items-center list-group-item"
         :class="{ bg: todo.completed }"
       >
-        <p class="m-0" :class="{ completed: todo.completed }">{{ todo.act }}</p>
+        <p
+          class="m-0"
+          :class="{ completed: todo.completed, 'line-through': todo.completed }"
+        >
+          {{ todo.act }}
+        </p>
         <div class="btn-group">
           <button class="btn btn-danger me-1" @click="deleteTodo(todo)">
             Delete
@@ -81,11 +86,42 @@ export default {
 p {
   font-size: 18px;
 }
-.completed {
-  text-decoration: line-through;
-}
 
 .bg {
   background-color: rgb(230, 230, 230);
+  animation: bgAnimation 0.3s ease-in-out forwards;
+}
+
+.completed {
+  position: relative;
+}
+
+.completed.line-through::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  top: calc(50%);
+  background-color: black;
+  animation: lineThroughAnimation 0.3s ease-in-out forwards;
+}
+
+@keyframes lineThroughAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bgAnimation {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgb(230, 230, 230);
+  }
 }
 </style>
