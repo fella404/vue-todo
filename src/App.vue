@@ -61,6 +61,7 @@ export default {
     <ul class="list-group" v-for="todo in todos" :key="todo.id">
       <li
         class="d-flex justify-content-between align-items-center list-group-item"
+        :class="{ bg: todo.completed }"
       >
         <p class="m-0" :class="{ completed: todo.completed }">{{ todo.act }}</p>
         <div class="btn-group">
@@ -77,7 +78,14 @@ export default {
 </template>
 
 <style>
+p {
+  font-size: 18px;
+}
 .completed {
   text-decoration: line-through;
+}
+
+.bg {
+  background-color: rgb(230, 230, 230);
 }
 </style>
