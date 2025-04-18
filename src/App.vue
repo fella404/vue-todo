@@ -51,7 +51,7 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-success text-uppercase fw-bold text-center">vue todo</h1>
+  <h1 class="text-uppercase fw-bold text-center">vue todo</h1>
   <div class="container">
     <section class="input-group my-3">
       <input
@@ -60,7 +60,7 @@ export default {
         v-model="todoInput"
         @keydown.enter="addTodo"
       />
-      <button @click="addTodo" class="btn btn-outline-secondary">Add</button>
+      <button @click="addTodo" class="btn btn-secondary">Add</button>
     </section>
     <ul class="list-group">
       <li
@@ -96,6 +96,36 @@ p {
 .bg {
   background-color: rgb(230, 230, 230);
   animation: bgAnimation 0.3s ease-in-out forwards;
+}
+
+.btn-secondary {
+  background-color: #2196f3;
+  border-color: #2196f3;
+}
+
+.btn-secondary:hover {
+  background-color: #1e83d6;
+  border-color: #1e83d6;
+}
+
+.btn-success {
+  background-color: #2196f3;
+  border-color: #2196f3;
+}
+
+.btn-success:hover {
+  background-color: #1c84da;
+  border-color: #1c84da;
+}
+
+.btn-danger {
+  background-color: #f50057;
+  border-color: #f50057;
+}
+
+.btn-danger:hover {
+  background-color: #e20150;
+  border-color: #e20150;
 }
 
 .completed {
