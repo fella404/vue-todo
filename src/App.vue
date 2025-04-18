@@ -94,8 +94,23 @@ p {
 }
 
 .bg {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(65, 65, 65);
   animation: bgAnimation 0.3s ease-in-out forwards;
+}
+
+.completed {
+  position: relative;
+}
+
+.completed.line-through::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  top: calc(50%);
+  background-color: #999999;
+  animation: lineThroughAnimation 0.3s ease-in-out forwards;
 }
 
 .btn-secondary {
@@ -128,21 +143,6 @@ p {
   border-color: #e20150;
 }
 
-.completed {
-  position: relative;
-}
-
-.completed.line-through::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  top: calc(50%);
-  background-color: black;
-  animation: lineThroughAnimation 0.3s ease-in-out forwards;
-}
-
 @keyframes lineThroughAnimation {
   0% {
     width: 0%;
@@ -154,10 +154,10 @@ p {
 
 @keyframes bgAnimation {
   0% {
-    background-color: white;
+    background-color: rgb(65, 65, 65);
   }
   100% {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(65, 65, 65);
   }
 }
 </style>
