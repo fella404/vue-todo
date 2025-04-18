@@ -3,7 +3,6 @@ export default {
   data() {
     return {
       todoInput: "",
-      idx: 0,
       todos: [],
     };
   },
@@ -24,7 +23,7 @@ export default {
     addTodo() {
       if (this.todoInput !== "") {
         this.todos.push({
-          id: this.idx++,
+          id: this.generateNewId(),
           act: this.todoInput,
           completed: false,
         });
@@ -40,7 +39,12 @@ export default {
           todo.completed = !todo.completed;
         }
       }
-      console.log(this.todos);
+    },
+    generateNewId() {
+      const randomId = Math.random().toString(36).substring(2);
+      const checkId = this.todos.find((todo) => todo.id === randomId);
+
+      return !checkId ? randomId : this.generateNewId();
     },
   },
 };
